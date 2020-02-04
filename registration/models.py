@@ -1,6 +1,7 @@
 from django.db import models
 
 from registration import const
+from donor.models import Donor
 
 
 class Registration(models.Model):
@@ -95,6 +96,7 @@ class Registration(models.Model):
     exm_img = models.BooleanField()
     exm_img_tipo = models.BooleanField()
     data_preenche = models.DateField(auto_now_add=True)
+    donor = models.OneToOneField(Donor, on_delete=models.CASCADE, null=True, blank=True)
 
 
 

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from donor.models import Donor
 from hospital.models import Hospital
-from .form import RegistrationForm
+from .form.form import RegistrationForm
 from .models import Registration
 
 

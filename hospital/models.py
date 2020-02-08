@@ -8,3 +8,6 @@ class Hospital(models.Model):
     phone = models.CharField("Telefone", max_length=20)
     branch = models.CharField("Ramal", max_length=10)
     donor = models.ForeignKey(Donor, null=True, blank=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name

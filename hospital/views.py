@@ -1,19 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
 
 from hospital.form.form import HospitalForm
+from hospital.models import Hospital
 
 
-def hospital_new(request):
-    form = HospitalForm()
-    data = {"form": form}
-    return render(request, 'hospital.html', data)
+class HospitalCreateView(CreateView):
+    model = Hospital
+    form_class = HospitalForm
+    success_url = reverse_lazy('hospital_list')
 
 
-def hospital_create(request):
-    form = HospitalForm(request.POST or None, request.FILE or None)
+class HospitalListView(ListView):
+    model = Hospital
+    context_object_name = 'hospitais'
 
-    if form.is_valid():
-        form.save()
-    return render(request, 'hospital', {'form': form})
+
 

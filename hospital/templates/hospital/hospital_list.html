@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block man %}
+<h1>Lista de Hospitais </h1>
+{%for hospital in hospitais %}
+   {{hospital}} <br>
+{%endfor %}
+{% endblock %}

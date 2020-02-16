@@ -1,5 +1,7 @@
 from django.db import models
 
+from hospital.models import Hospital
+
 
 class Donor(models.Model):
     name = models.CharField("Nome", max_length=200)
@@ -14,6 +16,7 @@ class Donor(models.Model):
     g_abo = models.CharField("G-ABO", max_length=20)
     mother_name = models.CharField("Nome Mão", max_length=155)
     death = models.DateTimeField()
+    hospital = models.OneToOneField(Hospital, null=True, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block man %}
+<form action="{% url 'donor_create'  %} " method="post">
+    {%csrf_token%}
+    {%bootstrap_form form %}
+    {% buttons %}
+       <button type="submit" class="btn btn-primary"> Salvar </button>
+    {% endbuttons%}
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block man %}
+<h1>Lista de Registros </h1>
+
+{% for registrations in registration %}
+{{ registrations.cause_ME }}  <br>
+
+{% endfor %}
+
+{% endblock %}

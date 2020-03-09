@@ -10,6 +10,6 @@ class RegistrationAdmin(admin.ModelAdmin):
     form = RegistrationForm
 
 
-admin.site.register(Registration, RegistrationAdmin)
+admin.site.register(Registration)
 admin.site.register(Hospital)
 admin.site.register(Donor)

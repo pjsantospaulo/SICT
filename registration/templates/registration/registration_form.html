@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+<!--{% load widget_tweaks %}-->
+{% block man %}
+<form action=" {% url 'registration_new'%}" method="post">
+    {% csrf_token%}
+<div class="form-row">
+    <div class="form-group col-xs-8 col-md-8">
+        {% bootstrap_field form.donor placeholder='donor' %}
+    </div>
+</div>
+<div class="row">
+    <div class="form-check ">
+        {% for radio in form.cause_ME %}
+        <div class="form-check-inline">
+        {{ radio }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+
+</div>
+    {% bootstrap_field form.historic placeholder="História e Evolução Clinica (Incluir doenças Auto-imunes Neoplasias, Aneurismas, AVC's, IAM's, etc" %}
+    <div class="form-row aling-items-center">
+        {%bootstrap_label "Ureia e Creatinina de entrada são de fundamental importância. Fa" label_class="col-form-label"%}
+        {% bootstrap_field form.ureia field_class="" show_label=False%}
+        {% bootstrap_field form.creatinina field_class="" show_label=False%}
+    </div>
+    <div class="row">
+    <div class="col-sm-5 col-md-6 col-auto">{%bootstrap_label "Antecedentes PESSOAIS "%}</div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">Diabetes no doador</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+    <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">.{% render_field form.donor_diabete class+="form-check-inline none" %}</div>
+  </div>
+<!--    <div class="row">-->
+<!--        <div class="col-auto"> {%bootstrap_label "Antecedentes PESSOAIS "%}</div>-->
+<!--        <div class="col">{% render_field form.donor_diabete class+="form-check-inline none" %}</div>-->
+<!--        <div class="col"> esse 3</div>-->
+
+<!--    </div>-->
+    {% bootstrap_button "Save" button_type="submit" button_class="btn-primary" %}
+
+</form>
+{% endblock%}

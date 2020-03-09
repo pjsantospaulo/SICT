@@ -1,0 +1,5 @@
+ul.none {
+	list-style-type: none;
+	margin:-2px;
+	clear: both;
+	}

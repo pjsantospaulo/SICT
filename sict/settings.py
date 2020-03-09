@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'hospital',
     'donor',
     'bootstrap4',
+    'widget_tweaks',
 
 ]
 
